@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Health Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 134, 104, 0.8), rgba(255, 255, 255, 0.8)); 
+            color: #333; 
+        }
+        .survey-container {
+            width: 650px;
+            margin: 100px auto;
+            background-color: #fff; 
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+        }
+        .survey-container h2 {
+            text-align: center;
+            color: #e67e22;
+        }
+        .survey-container p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555; 
+        }
+        .survey-container input, 
+        .survey-container select, 
+        .survey-container button {
+            width: 93%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+        }
+        .survey-container input:focus, 
+        .survey-container select:focus {
+            border-color: #e67e22; 
+            outline: none; 
+        }
+        .survey-container label {
+            font-weight: bold;
+            color: #333; 
+        }
+        .checkbox-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .checkbox-group label {
+            flex: 1;
+        }
+        .checkbox-group input {
+            width: auto;
+        }
+        .submit-btn {
+            background-color: #e96b22; 
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s; 
+        }
+        .submit-btn:hover {
+            background-color: #d35400; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="survey-container">
+        <h2>PERSONAL HEALTH SURVEY</h2>
+        <p>This survey will help us understand your health needs and preferences so we can provide personalized sports recommendations and nutrition guidance tailored to you.</p>
+        <form action="https://your-survey-processing-link.com" method="POST" target="_blank">
+            <label style="margin-top: 20px; margin-left: 10px;" for="name">Name *</label>
+            <input style="margin-bottom: 30px; margin-left: 10px;" type="text" id="name" name="name" required>
+
+            <label style="margin-top: 20px; margin-left: 10px;" for="email">Email Address *</label>
+            <input style="margin-bottom: 30px; margin-left: 10px;" type="email" id="email" name="email" required>
+
+            <label style="margin-top: 20px; margin-left: 10px;" for="age">Age Range *</label>
+            <select style="margin-bottom: 30px; margin-left: 10px;" id="age" name="age" required>
+                <option value="">Select your age range</option>
+                <option value="Under 18">Under 18</option>
+                <option value="18-25">18-25</option>
+                <option value="26-35">26-35</option>
+                <option value="36-45">36-45</option>
+                <option value="46-55">36-45</option>
+                <option value="56-65">36-45</option>
+                <option value="Over 60">Over 65</option>
+            </select>
+
+            <label style="margin-bottom: 5px; margin-left: 10px;">Health Conditions *</label>
+                <p style="font-style: italic; margin-left: 10px;text-align: left; margin-bottom: 5px; ">Do you have any existing health conditions?</p>
+                <div class="checkbox-group" style="display: flex; margin-left: 10px; align-items: center; justify-content: flex-start;">
+                    <input type="radio" id="yes" name="health_condition" value="yes" required style="margin-right: 10px;">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="health_condition" value="no" required style="margin-right: 10px;">
+                    <label for="no">No</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="If yes, please specify" style="width: 300px; display: none;" id="specify" />
+                </div>
+
+            <input style="margin-bottom: 30px; margin-left: 10px;" type="text" id="specify-condition" name="specify-condition" placeholder="If yes, please specify">
+
+            <label style="margin-top: 20px; margin-left: 10px;" for="diet">Dietary Preferences *</label>
+            <select style="margin-bottom: 30px; margin-left: 10px;" id="diet" name="diet" required>
+                <option value="">Select your dietary preferences</option>
+                <option value="normal">Normal</option>
+                <option value="vegetarian">Vegetarian</option>
+            </select>
+
+            <label style="margin-bottom: 5px; margin-left: 10px;">Food allergies *</label>
+                <p style="font-style: italic; margin-left: 10px; text-align: left; margin-bottom: 5px; ">Do you have any food allergies?</p>
+                <div class="checkbox-group" style="display: flex; margin-left: 10px; align-items: center; justify-content: flex-start;">
+                    <input type="radio" id="yes" name="health_condition" value="yes" required style="margin-right: 10px;">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="health_condition" value="no" required style="margin-right: 10px;">
+                    <label for="no">No</label>
+                </div>
+                <div>
+                    <input style="margin-left: 10px; margin-bottom: 30px" type="text" placeholder="If yes, please specify" style="width: 300px; display: none;" id="specify" />
+                </div>
+
+            <label style="margin-top: 20px; margin-left: 10px;" for="fitness">Fitness Level *</label>
+            <select style="margin-bottom: 30px; margin-left: 10px;" id="fitness" name="fitness" required>
+                <option value="">Select your fitness level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+
+            <label style="margin-top: 20px; margin-left: 10px; " for="sports">Preferred Sports or Activities *</label>
+            <select style="margin-bottom: 30px; margin-left: 10px;" id="sports" name="sports" required>
+                <option value="">Select your preferred sports or activities</option>
+                <option value="gym">Gym</option>
+                <option value="running">Running</option>
+                <option value="swimming">Swimming</option>
+                <option value="yoga">Yoga</option>
+            </select>
+
+            <div class="checkbox-group" style="display: flex; align-items: center; justify-content: flex-start;">
+                <input type="checkbox" id="consent" name="consent" required style="margin-right: 10px; margin-left: 40px">
+                <label for="consent" style="font-style: italic;">I agree to the processing of my personal data for survey purposes.</label>
+            </div>
+            
+            <button style="margin-left: 10px;" type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
