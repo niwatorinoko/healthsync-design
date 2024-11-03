@@ -1,0 +1,60 @@
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <!-- ***** Logo Start ***** -->
+          <a href="{% url 'authentications:index' %}" class="logo"
+            >Health<em> Sync.</em></a
+          >
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Menu Start ***** -->
+          <ul class="nav">
+            <li class="scroll-to-section">
+              <a href="{% url 'authentications:sport_plan' %}" class="active"
+                >Sports Plan</a
+              >
+            </li>
+            <li class="scroll-to-section">
+              <a href="{% url 'authentications:nutrition_plan' %}"
+                >Nutrition Guide</a
+              >
+            </li>
+            <li class="scroll-to-section">
+              <a href="{% url 'community:list' %}">Community</a>
+            </li>
+
+            {% if request.user.is_authenticated %}
+            <li class="scroll-to-section">
+              <a href="{% url 'authentications:profile' user.pk %}"
+                >Welcome, {{ request.user }}!</a
+              >
+            </li>
+            <li class="scroll-to-section">
+              <a
+                class="button is-warning"
+                href="{% url 'authentications:logout' %}"
+                >logout</a
+              >
+            </li>
+            {% else %}
+            <li class="scroll-to-section">
+              <a href="{% url 'authentications:login' %}">login</a>
+            </li>
+            <li class="main-button">
+              <a href="{% url 'authentications:signup' %}">Sign Up</a>
+            </li>
+            {% endif %}
+          </ul>
+
+          <a class="menu-trigger">
+            <span>Menu</span>
+          </a>
+          <!-- ***** Menu End ***** -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ***** Header Area End ***** -->

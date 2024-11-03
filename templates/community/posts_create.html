@@ -1,0 +1,15 @@
+{% extends 'base_1.html' %} {% block content %}
+
+<div class="columns is-centered" style="padding-top: 80px">
+  <div class="column is-half has-background-link-light">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} {{ form.as_p }}
+      <a class="button is-info mr-3" href="{{ request.META.HTTP_REFERER }}"
+        >Back</a
+      >
+      <button class="button is-primary">Post</button>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends 'base_1.html' %} {% block content %}
+<div class="columns" style="padding-top: 80px">
+  <div class="column is-one-quarter"></div>
+  <div class="column is-half">
+    <div class="media-left">
+      <img src="{{ object.image.url }}" width="100%" height="100%" />
+    </div>
+    <div class="content">
+      <a href="">
+        <strong class="has-text-black">Author:{{ object.author }}</strong>
+      </a>
+      <p class="is-size-5">
+        <a href="">
+          <strong class="has-text-black">{{ object.title }}</strong>
+        </a>
+      </p>
+      <div class="block">
+        {{ object.body }}<br />
+        {{ object.created_at|date:"Y/m/d H:i" }}<br />
+      </div>
+      {% if request.user == object.author %}
+      <a class="button is-danger" href="{% url 'community:delete' post.id %}"
+        >delete</a
+      >
+      {% endif %}
+    </div>
+
+    <div class="block">
+      <h2>All comments</h2>
+      {% for comment in comments %}
+      <div class="box">
+        <p>
+          <strong>{{ comment.author }}</strong>
+          - {{ comment.created_at|date:"Y/m/d H:i" }}
+        </p>
+        <p>{{ comment.body }}</p>
+      </div>
+      {% empty %}
+      <p>No comments</p>
+      {% endfor %}
+    </div>
+
+    <!-- コメントフォーム -->
+    {% if user.is_authenticated %}
+    <form method="post" action="">
+      {% csrf_token %} {{ form.body.label_tag }}<br />
+      {{ form.body }}
+      <button type="submit" class="button is-primary">Add a comment</button>
+    </form>
+    {% else %}
+    <p>
+      You need to
+      <a href="{% url 'authentication:login' %}">Login</a>
+    </p>
+    {% endif %}
+  </div>
+  <div class="column is-one-quarter"></div>
+</div>
+
+{% endblock content %}

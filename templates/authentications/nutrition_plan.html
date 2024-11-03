@@ -1,0 +1,49 @@
+{% extends 'base_1.html' %} {% block content %}
+
+<div class="nutrition-guide-container">
+  <h1>Personalized Nutrition Guide</h1>
+  <p>Below is a personalized nutrition guide for {{ user }}.</p>
+
+  <h2>Basic Information</h2>
+  <ul>
+    <li><strong>Sport:</strong> {{ sport }}</li>
+    <li><strong>Age Group:</strong> {{ age_group }}</li>
+    <li><strong>Health Condition:</strong> {{ health_condition }}</li>
+    <li><strong>Food Allergies:</strong> {{ food_allergies }}</li>
+    <li><strong>Dietary Preference:</strong> {{ dietary_preference }}</li>
+  </ul>
+
+  <h2>Nutrition Guide</h2>
+  <ul>
+    <li><strong>Sport-Specific Guide:</strong> {{ nutrition_guide.sport }}</li>
+    <li><strong>Age-Specific Guide:</strong> {{ nutrition_guide.age }}</li>
+    <li>
+      <strong>Guide Based on Health Condition:</strong>
+      {{ nutrition_guide.health_condition }}
+    </li>
+    <li>
+      <strong>Guide Based on Allergies:</strong>
+      {{ nutrition_guide.food_allergies }}
+    </li>
+    <li>
+      <strong>Guide Based on Dietary Preference:</strong>
+      {{ nutrition_guide.dietary_preference }}
+    </li>
+  </ul>
+
+  <h2>Sample Menu</h2>
+  <ul>
+    <li>
+      <strong>Breakfast:</strong>
+      {{ nutrition_guide.sample_menu.breakfast }}
+    </li>
+    <li><strong>Lunch:</strong> {{ nutrition_guide.sample_menu.lunch }}</li>
+    <li><strong>Dinner:</strong> {{ nutrition_guide.sample_menu.dinner }}</li>
+    <li><strong>Snacks:</strong> {{ nutrition_guide.sample_menu.snacks }}</li>
+    <li>
+      <strong>Supplements:</strong>
+      {{ nutrition_guide.sample_menu.supplements }}
+    </li>
+  </ul>
+</div>
+{% endblock content %}

@@ -1,0 +1,147 @@
+<!-- ***** Custom Header Area Start ***** -->
+<header class="custom-header header-sticky">
+  <div class="container">
+    <div class="header-content">
+      <!-- ***** Logo Start ***** -->
+      <a href="{% url 'authentications:index' %}" class="logo">
+        <span class="logo-text">Health</span><em>Sync</em>
+      </a>
+      <!-- ***** Logo End ***** -->
+
+      <!-- ***** Navigation Menu Start ***** -->
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li>
+            <a
+              href="{% url 'authentications:sport_plan' %}"
+              class="nav-link active"
+              >Sports Plan</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'authentications:nutrition_plan' %}"
+              class="nav-link"
+              >Nutrition Guide</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'community:list' %}" class="nav-link">Community</a>
+          </li>
+
+          {% if request.user.is_authenticated %}
+          <li>
+            <a
+              href="{% url 'authentications:profile' user.pk %}"
+              class="nav-link"
+              >Welcome, {{ request.user }}!</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'authentications:logout' %}"
+              class="nav-link logout-button"
+              >Logout</a
+            >
+          </li>
+          {% else %}
+          <li>
+            <a href="{% url 'authentications:login' %}" class="nav-link"
+              >Login</a
+            >
+          </li>
+          <li class="signup-button">
+            <a href="{% url 'authentications:signup' %}" class="nav-link"
+              >Sign Up</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      <!-- ***** Navigation Menu End ***** -->
+
+      <!-- ***** Mobile Menu Trigger Start ***** -->
+      <div class="menu-trigger">
+        <span class="trigger-icon">☰</span>
+      </div>
+      <!-- ***** Mobile Menu Trigger End ***** -->
+    </div>
+  </div>
+</header>
+<!-- ***** Custom Header Area End ***** -->
+
+<style>
+  /* Custom Header Styling */
+  .custom-header {
+    background-color: #ffffff;
+    border-bottom: 2px solid #f0f0f0;
+    padding: 15px 0;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .logo em {
+    color: #f78f1e;
+    font-style: normal;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-link:hover {
+    color: #f78f1e;
+  }
+
+  .logout-button {
+    background-color: #ffc107;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #333;
+  }
+
+  .signup-button .nav-link {
+    background-color: #007bff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #fff;
+  }
+
+  .menu-trigger {
+    display: none;
+  }
+
+  .trigger-icon {
+    font-size: 24px;
+    color: #333;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+    }
+
+    .menu-trigger {
+      display: block;
+    }
+  }
+</style>
